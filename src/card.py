@@ -15,12 +15,12 @@ class Card(object):
         attributes: dict = attributes,
         is_super_t: bool = is_super_t
     ):
-        self.name=name
-        self.rank=rank
-        self.position=position
-        self.card_image=card_image
-        self.attributes=attributes
-        self.is_super_t=is_super_t
+        self.name = name
+        self.rank = rank
+        self.position = position
+        self.card_image = card_image
+        self.attributes = attributes
+        self.is_super_t = is_super_t
 
     def dump_object(self) -> None:
         pass

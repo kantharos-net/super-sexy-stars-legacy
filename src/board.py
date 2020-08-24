@@ -13,8 +13,8 @@ class Board(object):
         compare_field: List[Card] = compare_field,
         history: List[str] = history
     ):
-        self.background=background
-        self.compare_field=compare_field
+        self.background = background
+        self.compare_field = compare_field
         self.history = history
 
     def create_board(self) -> None:

@@ -9,8 +9,8 @@ class Player(object):
         name: str = name,
         hand: List[Card] = hand 
     ):
-        self.name=name
-        self.hand=hand
+        self.name = name
+        self.hand = hand
 
     def dump_object(self):
         pass
