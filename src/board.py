@@ -12,7 +12,6 @@ class Board():
         self.height = 800
         self.board_color = (0,0,0)
         self.rect = pygame.Rect(0, 0, self.width, self.height)
-        #self.rect.center = self.screen_rect.center
         self.rect.topleft = self.screen_rect.topleft
 
     def draw_board(self):
