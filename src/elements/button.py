@@ -28,11 +28,13 @@ class Button():
         self.rect.center = self.screen_rect.center
         self.prep_msg(message)
 
+    # Renders the message displayed in the button.
     def prep_msg(self, message):          
         self.msg_image = self.font.render(message, True, self.text_color, self.button_color)
         self.msg_image_rect = self.msg_image.get_rect()
         self.msg_image_rect.center = self.rect.center
     
+    # Draws a button.
     def draw_button(self):
         self.screen.fill(self.button_color, self.rect)
         self.screen.blit(self.msg_image, self.msg_image_rect)

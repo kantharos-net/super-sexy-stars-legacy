@@ -23,7 +23,7 @@ class Board():
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         self.rect.topleft = self.screen_rect.topleft
 
-
+    # Draws the game board.
     def draw_board(self):
         self.screen.fill(self.board_color, self.rect)
 
