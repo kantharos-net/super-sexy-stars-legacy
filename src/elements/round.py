@@ -1,6 +1,6 @@
 from typing import List
-from player import Player
-from card import Card
+from elements.player import Player
+from elements.card import Card
 from misc.round_enum import RoundPhase, RoundState
 
 class Round(object):

@@ -1,11 +1,11 @@
 {   
-    "canvas-background": "/path/to/image.jpg",
+    "canvas-background": "./images/image.png",
 	"cards-data": [ 	   
         {
             "name": "Sasha Grey",
             "rank": "A",
             "position": 5,
-            "image": "/path/to/sasha_grey.jpg",
+            "image": "./images/a5_sasha_grey.png",
             "is_sp": true,
             "attributes": {
                 "breast-size": [32,"B"],
@@ -19,7 +19,7 @@
             "name": "Asa Akira",
             "rank": "A",
             "position": 1,
-            "image": "/path/to/asa_akira.jpg",
+            "image": "./images/a1_asa_akira.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"C"],
@@ -33,7 +33,7 @@
             "name": "Angela White",
             "rank": "A",
             "position": 2,
-            "image": "/path/to/angela_white.jpg",
+            "image": "./images/a2_angela_white.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [40,"GG"],
@@ -47,7 +47,7 @@
             "name": "Haley Reed",
             "rank": "A",
             "position": 3,
-            "image": "/path/to/haley_reed.jpg",
+            "image": "./images/a3_haley_reed.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"B"],
@@ -61,7 +61,7 @@
             "name": "Riley Reid",
             "rank": "A",
             "position": 4,
-            "image": "/path/to/riley_reid.jpg",
+            "image": "./images/a4_riley_reid.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"A"],
@@ -75,7 +75,7 @@
             "name": "Gina Valentina",
             "rank": "A",
             "position": 6,
-            "image": "/path/to/gina_valentina.jpg",
+            "image": "./images/a6_gina_valentina.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"A"],
@@ -89,7 +89,7 @@
             "name": "Lexi Belle",
             "rank": "A",
             "position": 7,
-            "image": "/path/to/lexi_belle.jpg",
+            "image": "./images/a7_lexi_belle.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"C"],
@@ -103,7 +103,7 @@
             "name": "Mia Khalifa",
             "rank": "B",
             "position": 1,
-            "image": "/path/to/mia_khalifa.jpg",
+            "image": "./images/b1_mia_khalifa.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"E"],
@@ -117,7 +117,7 @@
             "name": "Autumn Falls",
             "rank": "B",
             "position": 2,
-            "image": "/path/to/mia_khalifa.jpg",
+            "image": "./images/b2_autumn_falls.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"G"],
@@ -131,7 +131,7 @@
             "name": "Lisa Ann",
             "rank": "B",
             "position": 3,
-            "image": "/path/to/lisa_ann.jpg",
+            "image": "./images/b3_lisa_ann.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [38,"DD"],
@@ -145,7 +145,7 @@
             "name": "Gianna Michaels",
             "rank": "B",
             "position": 4,
-            "image": "/path/to/gianna_michaels.jpg",
+            "image": "./images/b4_gianna_michaels.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"DD"],
@@ -159,7 +159,7 @@
             "name": "Nia Nacci",
             "rank": "B",
             "position": 5,
-            "image": "/path/to/nia_nacci.jpg",
+            "image": "./images/b5_nia_nacci.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"DD"],
@@ -173,7 +173,7 @@
             "name": "Cory Chase",
             "rank": "B",
             "position": 6,
-            "image": "/path/to/cory_chase.jpg",
+            "image": "./images/b6_cory_chase.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"D"],
@@ -187,7 +187,7 @@
             "name": "Mia Malkova",
             "rank": "B",
             "position": 7,
-            "image": "/path/to/mia_malkova.jpg",
+            "image": "./images/b7_mia_malkova.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"C"],
@@ -201,7 +201,7 @@
             "name": "Faye Reagan",
             "rank": "C",
             "position": 1,
-            "image": "/path/to/faye_reagan.jpg",
+            "image": "./images/c1_faye_reagan.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"B"],
@@ -215,7 +215,7 @@
             "name": "Alexis Texas",
             "rank": "C",
             "position": 2,
-            "image": "/path/to/alexis_texas.jpg",
+            "image": "./images/c2_alexis_texas.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"C"],
@@ -229,7 +229,7 @@
             "name": "Abella Danger",
             "rank": "C",
             "position": 3,
-            "image": "/path/to/abella_danger.jpg",
+            "image": "./images/c3_abella_danger.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"C"],
@@ -243,7 +243,7 @@
             "name": "Tori Black",
             "rank": "C",
             "position": 4,
-            "image": "/path/to/tori_black.jpg",
+            "image": "./images/c4_tori_black.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"B"],
@@ -257,7 +257,7 @@
             "name": "Remy LaCroix",
             "rank": "C",
             "position": 5,
-            "image": "/path/to/remy_lacroix.jpg",
+            "image": "./images/c5_remy_lacroix.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"B"],
@@ -271,7 +271,7 @@
             "name": "Kira Noir",
             "rank": "C",
             "position": 6,
-            "image": "/path/to/kira_noir.jpg",
+            "image": "./images/c6_kira_noir.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"B"],
@@ -285,7 +285,7 @@
             "name": "Jia Lissa",
             "rank": "C",
             "position": 7,
-            "image": "/path/to/jia_lissa.jpg",
+            "image": "./images/c7_jia_lissa.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"A"],
@@ -299,7 +299,7 @@
             "name": "Lana Rhoades",
             "rank": "D",
             "position": 1,
-            "image": "/path/to/lana_rhoades.jpg",
+            "image": "./images/d1_lana_rhoades.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"D"],
@@ -313,7 +313,7 @@
             "name": "Elsa Jean",
             "rank": "D",
             "position": 2,
-            "image": "/path/to/elsa_jean.jpg",
+            "image": "./images/d2_elsa_jean.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"A"],
@@ -327,7 +327,7 @@
             "name": "Piper Perri",
             "rank": "D",
             "position": 3,
-            "image": "/path/to/piper_perri.jpg",
+            "image": "./images/d3_piper_perri.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"A"],
@@ -341,7 +341,7 @@
             "name": "Vina Sky",
             "rank": "D",
             "position": 4,
-            "image": "/path/to/vina_sky.jpg",
+            "image": "./images/d4_vina_sky.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"A"],
@@ -355,7 +355,7 @@
             "name": "Little Caprice",
             "rank": "D",
             "position": 5,
-            "image": "/path/to/little_caprice.jpg",
+            "image": "./images/d5_little_caprice.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [32,"B"],
@@ -369,7 +369,7 @@
             "name": "Leah Gotti",
             "rank": "D",
             "position": 6,
-            "image": "/path/to/leah_gotti.jpg",
+            "image": "./images/d6_leah_gotti.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"C"],
@@ -383,7 +383,7 @@
             "name": "Stoya Doll",
             "rank": "D",
             "position": 7,
-            "image": "/path/to/stoya_doll.jpg",
+            "image": "./images/d7_stoya_doll.png",
             "is_sp": false,
             "attributes": {
                 "breast-size": [34,"B"],

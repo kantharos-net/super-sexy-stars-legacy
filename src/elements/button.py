@@ -1,20 +1,35 @@
 import pygame.font
+from typing import List, Tuple
 
 class Button():
+    screen: pygame.Surface = None
+    message: str = ""
+    width: int = 200
+    height: int = 50
+    button_color: Tuple[int, int, int] = (255, 0, 255)
+    text_color: Tuple[int, int, int] = (255, 255, 255)
 
-    def __init__(self, ai_settings, screen, msg):       
+    def __init__(self,
+        screen: pygame.Surface = screen,
+        message: str = message,
+        width: int = width,
+        height: int = height,
+        button_color: Tuple[int, int, int] = button_color,
+        text_color: Tuple[int, int, int] = text_color
+    ):
         self.screen = screen
         self.screen_rect = screen.get_rect()
-        self.width, self.height = 200, 50
-        self.button_color = (255,0,255)
-        self.text_color = (255, 255, 255)
+        self.width = width
+        self.height = height
+        self.button_color = button_color
+        self.text_color = text_color
         self.font = pygame.font.SysFont('Calibri', 48)
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         self.rect.center = self.screen_rect.center
-        self.prep_msg(msg)
+        self.prep_msg(message)
 
-    def prep_msg(self, msg):          
-        self.msg_image = self.font.render(msg, True, self.text_color, self.button_color)
+    def prep_msg(self, message):          
+        self.msg_image = self.font.render(message, True, self.text_color, self.button_color)
         self.msg_image_rect = self.msg_image.get_rect()
         self.msg_image_rect.center = self.rect.center
     

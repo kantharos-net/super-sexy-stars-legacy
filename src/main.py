@@ -42,14 +42,14 @@ def run_game():
 
     # GAME INIT
     pygame.init()
-    pygame.display.set_caption("Super Sexy Stars")
-    screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
-    play_button = Button(settings, screen ,"start")
+    screen = pygame.display.set_mode((settings["screen_width"], settings["screen_height"]))
+    pygame.display.set_caption(settings["title"])
+    play_button = Button(screen ,"start")
     game_board = Board(settings, screen)
     stats = GameStats()
     
     while True:
-        gf.check_events(settings, screen, play_button, game_board, stats)  
+        gf.check_events(screen, play_button, game_board, stats)  
         gf.update_screen(settings, screen, stats, play_button, game_board)
 
 run_game()

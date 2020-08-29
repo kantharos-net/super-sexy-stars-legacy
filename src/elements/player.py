@@ -1,4 +1,4 @@
-from card import Card
+from elements.card import Card
 from typing import List
 
 class Player(object):

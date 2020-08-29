@@ -1,6 +1,8 @@
 from elements.round import Round
 
 class GameStats():
-    def __init__(self):
-        self.game_active = False
+    game_active: bool = False
+
+    def __init__(self, game_active: bool = game_active):
+        self.game_active = game_active
         self.round = Round()
