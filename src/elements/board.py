@@ -5,7 +5,7 @@ from settings import Settings
 #from typing import List
 
 class Board():
-    def __init__(self, ai_settings, screen):
+    def __init__(self, settings, screen):
         self.screen = screen
         self.screen_rect = screen.get_rect()
         self.width = 950
@@ -13,6 +13,7 @@ class Board():
         self.board_color = (0,0,0)
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         self.rect.topleft = self.screen_rect.topleft
+
 
     def draw_board(self):
         self.screen.fill(self.board_color, self.rect)

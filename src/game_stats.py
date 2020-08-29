@@ -1,6 +1,6 @@
-class GameStats():
-    def __init__(self, ai_settings):
-        self.ai_settings = ai_settings
-        self.game_active = False
+from elements.round import Round
 
-    
+class GameStats():
+    def __init__(self):
+        self.game_active = False
+        self.round = Round()
