@@ -25,7 +25,7 @@ def run_game():
     pygame.init()
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Super Trunfo Porn")
+    pygame.display.set_caption("Super Sexy Stars")
     play_button = Button(ai_settings,screen ,"start")
     game_board = Board(ai_settings,screen)
     stats = GameStats(ai_settings)

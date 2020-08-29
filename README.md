@@ -1,4 +1,4 @@
-# Super Trunfo P*
+# Super Sexy Stars*
 
 Small game that started as a group joke. Now its more serious than ever. :D
 
