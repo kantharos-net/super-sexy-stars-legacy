@@ -16,7 +16,6 @@ class Board():
 
     def draw_board(self):
         self.screen.fill(self.board_color, self.rect)
-        
 
     #background: str = ""
     #compare_field: List[Card] = []
@@ -31,13 +30,5 @@ class Board():
         #self.compare_field=compare_field
         #self.history = history
 
-    
-            
-
-
-        
-
-    
-
-    #def dump_object(self) -> None:
-        #pass
+    def dump_object(self) -> None:
+        pass
