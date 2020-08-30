@@ -1,44 +1,30 @@
 import pygame
 import sys
-from typing import List, Tuple
-#from card import Card
+from typing import Tuple
 
 class Board():
-    width: int = 950
-    height: int = 800
+    width: int = 0
+    height: int = 0
     board_color: Tuple[int, int, int] = (0,0,0)
     screen: pygame.Surface = None
 
-    def __init__(self, settings,
-        screen: pygame.Surface = screen,
+    def __init__(self,
         width: int = width,
         height: int = height,
+        screen: pygame.Surface = screen,
         board_color: Tuple[int, int, int] = board_color
     ):
-        self.screen = screen
-        self.screen_rect = screen.get_rect()
         self.width = width
         self.height = height
+        self.screen = screen
         self.board_color = board_color
-        self.rect = pygame.Rect(0, 0, self.width, self.height)
-        self.rect.topleft = self.screen_rect.topleft
 
+        self.screen_rect = screen.get_rect()
+        self.board_rect = pygame.Rect(0, 0, width, height)
+        self.board_rect.topleft = self.screen_rect.topleft
 
-    def draw_board(self):
-        self.screen.fill(self.board_color, self.rect)
-
-    #background: str = ""
-    #compare_field: List[Card] = []
-    #history: List[str] = []
-
-    #def __init__(self, 
-        #background: str = background,
-        #compare_field: List[Card] = compare_field,
-        #history: List[str] = history
-    #):
-        #self.background=background
-        #self.compare_field=compare_field
-        #self.history = history
+    def draw_board(self) -> None:
+        self.screen.fill(self.board_color, self.board_rect)
 
     def dump_object(self) -> None:
         pass
