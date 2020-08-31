@@ -1,4 +1,4 @@
-# Super Trunfo P*
+# Super Sexy Stars
 
 Small game that started as a group joke. Now its more serious than ever. :D
 
@@ -8,51 +8,25 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-The game requires for you to have a working Python 3.8 environment.
+[Python](https://www.python.org/downloads/) version 3.8.x
 
-Modules: pygame, ...
+[Pygame](http://www.pygame.org/download.shtml) version 1.9.x
 
-```
-Give examples
-```
+There is a known Pygame issue with OS X El Capitan and newer. Because of different versions of SDL_image library, images rendered in a Pygame application look corrupted. The workaround is to downgrade to an older version of SDL_image library. See instructions here: http://stackoverflow.com/a/35385411
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Download archive with latest available version of **super-trunfo-p** package from https://github.com/kantharos-net/super-trunfo-p/releases.
 
 ```
-Give the example
+pip install super-trunfo-p.zip
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
 Explain how to run the automated tests for this system
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
