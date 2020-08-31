@@ -36,7 +36,6 @@ class Button():
         self.position_y = position_y
 
         self.font = pygame.font.SysFont(text_font, text_size)
-        self.screen_rect = screen.get_rect()
         self.button_rect = pygame.Rect(
             (self.position_x, self.position_y),
             (self.width, self.height)
@@ -59,6 +58,7 @@ class Button():
             (self.position_x, self.position_y),
             (self.width, self.height)
         )
+        self.draw_button()
 
     def is_clicked(self, mouse_x: int, mouse_y: int) -> bool:
         return self.button_rect.collidepoint(mouse_x, mouse_y)

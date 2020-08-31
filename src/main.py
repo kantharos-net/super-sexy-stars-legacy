@@ -60,20 +60,5 @@ def run_game():
             game_flow.title_screen(screen = screen, settings = settings, stats = stats)
         else:
             game_flow.game_screen(screen = screen, settings = settings, stats = stats)
-'''            
-            game_flow.check_events(
-                screen = screen,
-                play_button = play_button,
-                game_board = game_board,
-                stats = stats
-            )  
-            game_flow.update_screen(
-                settings = settings, 
-                screen = screen,
-                play_button = play_button,
-                game_board = game_board,
-                stats = stats
-            )
-'''
 
 run_game()   

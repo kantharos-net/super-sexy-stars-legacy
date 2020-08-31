@@ -33,7 +33,6 @@ class Text():
         self.position_y = position_y
 
         self.font = pygame.font.SysFont(text_font, text_size)
-        self.screen_rect = screen.get_rect()
         self.text_rect = pygame.Rect(
             (self.position_x, self.position_y),
             (self.width, self.height)

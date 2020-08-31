@@ -62,20 +62,22 @@ def title_screen(screen: pygame.Surface, settings: dict, stats:GameStatus) -> No
     play_button.draw_button()
     rules_button.draw_button()
     quit_button.draw_button()
+    pygame.display.flip()
 
     while not stats.game_active:
         for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 if play_button.is_clicked(mouse_x, mouse_y):
                     stats.game_active = True
                 elif rules_button.is_clicked(mouse_x, mouse_y):
-                    show_rules(
-                        screen = screen,
-                        settings = settings
-                    )
+                    show_rules(screen = screen, settings = settings)
                 elif quit_button.is_clicked(mouse_x, mouse_y):
-                    sys.exit(1)
+                    pygame.quit()
+                    quit()
 
 
 def show_rules(screen: pygame.Surface, settings: dict) -> None:
@@ -87,6 +89,10 @@ def show_rules(screen: pygame.Surface, settings: dict) -> None:
         print(fnf.args)
         exit(1)
 
+    # TODO 
+    # Create rules popup and back button based on this screen
+    # https://drive.google.com/file/d/1OVCg_oRnnI8r-u9FJNv_NVWlj8-rRxwl/view?usp=sharing
+
     print(rules_content)
 
 def game_screen_initial_prep(screen: pygame.Surface, settings: dict) -> None:
@@ -94,14 +100,30 @@ def game_screen_initial_prep(screen: pygame.Surface, settings: dict) -> None:
     game_board = Board(
         width = settings["board_width"],
         height = settings["board_height"],
+        position_x = settings["board_pos_x"],
+        position_y = settings["board_pos_y"],
         screen = screen,
         board_color = tuple(settings["board_color"])
+    )
+
+    log_screen_title_text = Text(
+        text = settings["log_screen_title_text_text"],
+        width = settings["log_screen_title_text_width"],
+        height = settings["log_screen_title_text_height"],
+        position_x = settings["log_screen_title_text_pos_x"],
+        position_y = settings["log_screen_title_text_pos_y"],
+        text_font = settings["log_screen_title_text_text_font"],
+        text_size = settings["log_screen_title_text_text_size"],
+        screen = screen,
+        text_color = tuple(settings["log_screen_title_text_text_color"])
     )
 
     log_screen = LogScreen(
         width = settings["log_screen_width"],
         height = settings["log_screen_height"],
-        top_message = settings["log_screen_top_message"],
+        position_x = settings["log_screen_pos_x"],
+        position_y = settings["log_screen_pos_y"],
+        log_text = settings["log_screen_log_text"],
         text_font = settings["log_screen_text_font"],
         text_size = settings["log_screen_text_size"],
         screen = screen,
@@ -109,10 +131,23 @@ def game_screen_initial_prep(screen: pygame.Surface, settings: dict) -> None:
         log_screen_text_color = tuple(settings["log_screen_text_color"])
     )
 
+    confirm_button = Button(
+        text = settings["confirm_button_text"],
+        width = settings["confirm_button_width"],
+        height = settings["confirm_button_height"],
+        position_x = settings["confirm_button_pos_x"],
+        position_y = settings["confirm_button_pos_y"],
+        text_font = settings["confirm_button_text_font"],
+        text_size = settings["confirm_button_text_size"],
+        screen = screen,
+        button_color = tuple(settings["confirm_button_color"]),
+        text_color = tuple(settings["confirm_button_text_color"])
+    )
+
     game_board.draw_board()
     log_screen.draw_log_screen()
-
-    pass
+    log_screen_title_text.draw_text()
+    confirm_button.draw_button()
 
 def game_screen(screen: pygame.Surface, stats: GameStatus, settings: dict) -> None:
     if stats.initial_setup:
@@ -121,37 +156,7 @@ def game_screen(screen: pygame.Surface, stats: GameStatus, settings: dict) -> No
             settings = settings
         )
         stats.initial_setup = False
+        pygame.display.flip()
 
-    pass
-
-def check_events(
-        screen: pygame.Surface, 
-        play_button: Button, 
-        game_board: Board,
-        log_screen: LogScreen,
-        stats: GameStatus
-    ) -> None:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_x, mouse_y = pygame.mouse.get_pos()
-            if play_button.is_clicked(mouse_x, mouse_y) and not stats.game_active:
-                game_board.draw_board()
-                log_screen.draw_log_screen()
-                stats.game_active = True
-
-def update_screen(
-        settings: dict, 
-        screen: pygame.Surface, 
-        stats: GameStatus, 
-        play_button: Button, 
-        game_board: Board
-    ) -> None:
-    screen.fill(settings["bg_color"])
-    if not stats.game_active:
-        play_button.draw_button()
-    else:
-        game_board.draw_board()
-    pygame.display.flip()
-    
+    # TODO 
+    # Implement play screen funcionalities
