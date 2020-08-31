@@ -8,15 +8,15 @@ from game_status import GameStatus
 
 def title_screen(screen: pygame.Surface, settings: dict, stats:GameStatus) -> None:
     game_title = Text(
-        text = settings["start_button_text"],
-        width = settings["start_button_width"],
-        height = settings["start_button_height"],
-        position_x = settings["start_button_pos_x"],
-        position_y = settings["start_button_pos_y"],
-        text_font = settings["start_button_text_font"],
-        text_size = settings["start_button_text_size"],
+        text = settings["title_text_text"],
+        width = settings["title_text_width"],
+        height = settings["title_text_height"],
+        position_x = settings["title_text_pos_x"],
+        position_y = settings["title_text_pos_y"],
+        text_font = settings["title_text_text_font"],
+        text_size = settings["title_text_text_size"],
         screen = screen,
-        text_color = tuple(settings["start_button_text_color"])
+        text_color = tuple(settings["title_text_text_color"])
     )
 
     play_button = Button(
@@ -75,7 +75,7 @@ def title_screen(screen: pygame.Surface, settings: dict, stats:GameStatus) -> No
                         settings = settings
                     )
                 elif quit_button.is_clicked(mouse_x, mouse_y):
-                    exit(1)
+                    sys.exit(1)
 
 
 def show_rules(screen: pygame.Surface, settings: dict) -> None:
