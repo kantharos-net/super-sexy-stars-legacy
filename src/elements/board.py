@@ -22,16 +22,6 @@ class Board():
         self.height = height
         self.screen = screen
         self.board_color = board_color
-        self.rect = pygame.Rect(0, 0, self.width, self.height)
-        self.rect.topleft = self.screen_rect.topleft
-
-    # Draws the game board.
-    def draw_board(self):
-        self.screen.fill(self.board_color, self.rect)
-
-    #background: str = ""
-    #compare_field: List[Card] = []
-    #history: List[str] = []
         self.board_rect = pygame.Rect(
             (self.position_x, self.position_y),
             (self.width, self.height)

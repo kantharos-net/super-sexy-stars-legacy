@@ -32,21 +32,6 @@ class Button():
         self.height = height
         self.button_color = button_color
         self.text_color = text_color
-        self.font = pygame.font.SysFont('Calibri', 48)
-        self.rect = pygame.Rect(0, 0, self.width, self.height)
-        self.rect.center = self.screen_rect.center
-        self.prep_msg(message)
-
-    # Renders the message displayed in the button.
-    def prep_msg(self, message):          
-        self.msg_image = self.font.render(message, True, self.text_color, self.button_color)
-        self.msg_image_rect = self.msg_image.get_rect()
-        self.msg_image_rect.center = self.rect.center
-    
-    # Draws a button.
-    def draw_button(self):
-        self.screen.fill(self.button_color, self.rect)
-        self.screen.blit(self.msg_image, self.msg_image_rect)
         self.position_x = position_x
         self.position_y = position_y
 
@@ -89,4 +74,3 @@ class Button():
             source = msg_image,
             dest = msg_image_rect
         )
-        
