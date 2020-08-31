@@ -1,5 +1,7 @@
-import pygame.font
 from typing import Tuple
+
+import pygame.font
+
 
 class Text():
     text: str = ""
@@ -13,17 +15,16 @@ class Text():
     text_color: Tuple[int, int, int] = (0, 0, 0)
 
     def __init__(self,
-        text: str = text,
-        width: int = width,
-        height: int = height,
-        position_x: int = position_x,
-        position_y: int = position_y,
-        text_font: str = text_font,
-        text_size: int = text_size,
-        screen: pygame.Surface = screen,
-        text_color: Tuple[int, int, int] = text_color
-
-    ):
+                 text: str = text,
+                 width: int = width,
+                 height: int = height,
+                 position_x: int = position_x,
+                 position_y: int = position_y,
+                 text_font: str = text_font,
+                 text_size: int = text_size,
+                 screen: pygame.Surface = screen,
+                 text_color: Tuple[int, int, int] = text_color
+                 ):
         self.text = text
         self.screen = screen
         self.width = width
@@ -37,11 +38,11 @@ class Text():
             (self.position_x, self.position_y),
             (self.width, self.height)
         )
-    
+
     def create_text_render(self) -> Tuple[pygame.Surface, pygame.Rect]:
         msg_image: pygame.Surface = self.font.render(
-            self.text, 
-            True, 
+            self.text,
+            True,
             self.text_color
         )
         msg_image_rect: pygame.Rect = msg_image.get_rect()
@@ -52,6 +53,6 @@ class Text():
     def draw_text(self) -> None:
         msg_image, msg_image_rect = self.create_text_render()
         self.screen.blit(
-            source = msg_image,
-            dest = msg_image_rect
+            source=msg_image,
+            dest=msg_image_rect
         )

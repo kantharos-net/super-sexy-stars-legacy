@@ -7,18 +7,18 @@ class Round(object):
     number: int = 0
     attr_selection: str = ""
     state: RoundState = 0
-    winner: Player = Player("",[])
+    winner: Player = Player("", [])
     players: List[Player] = []
     comparison: List[Card] = []
 
-    def __init__(self, 
-        number: int = number,
-        attr_selection: str = attr_selection,
-        state: RoundState = state,
-        winner: Player = winner,
-        players: List[Player] = players,
-        comparison: List[Card] = comparison,
-    ):
+    def __init__(self,
+                 number: int = number,
+                 attr_selection: str = attr_selection,
+                 state: RoundState = state,
+                 winner: Player = winner,
+                 players: List[Player] = players,
+                 comparison: List[Card] = comparison,
+                 ):
         self.number = number
         self.attr_selection = attr_selection
         self.state = state

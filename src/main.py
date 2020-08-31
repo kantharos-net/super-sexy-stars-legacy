@@ -1,36 +1,32 @@
+import sys
 import json
 import pygame
-import sys
 import game_flow
 from game_status import GameStatus
 
-from elements.board import Board
-from elements.button import Button
-from elements.log_screen import LogScreen
-
-data_files_path = "./config/game-data.json"
-settings_path = "./config/settings.json"
+DATA_FILES_PATH = "./config/game-data.json"
+SETTINGS_PATH = "./config/settings.json"
 
 def load_data_files() -> dict:
     try:
-        fd = open(data_files_path)
-        data = dict(json.load(fd))
-        fd.close()
+        file_d = open(DATA_FILES_PATH)
+        data = dict(json.load(file_d))
+        file_d.close()
     except FileNotFoundError as fnf:
         print(fnf.args)
-        exit(1)
-    
+        sys.exit(1)
+
     return data
 
 def load_settings() -> dict:
     try:
-        fd = open(settings_path)
-        settings = dict(json.load(fd))
-        fd.close()
+        file_d = open(SETTINGS_PATH)
+        settings = dict(json.load(file_d))
+        file_d.close()
     except FileNotFoundError as fnf:
         print(fnf.args)
-        exit(1)
-    
+        sys.exit(1)
+
     return settings
 
 def invoke_board() -> None:
@@ -52,13 +48,13 @@ def run_game():
     )
     pygame.display.set_caption(settings["game_title"])
     screen.fill(settings["bg_color"])
-    
+
     stats = GameStatus()
 
     while True:
         if not stats.game_active:
-            game_flow.title_screen(screen = screen, settings = settings, stats = stats)
+            game_flow.title_screen(screen=screen, settings=settings, stats=stats)
         else:
-            game_flow.game_screen(screen = screen, settings = settings, stats = stats)
+            game_flow.game_screen(screen=screen, settings=settings, stats=stats)
 
-run_game()   
+run_game()

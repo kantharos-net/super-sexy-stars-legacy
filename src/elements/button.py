@@ -1,5 +1,6 @@
-import pygame.font
 from typing import Tuple
+
+import pygame.font
 
 class Button():
     text: str = ""
@@ -14,18 +15,17 @@ class Button():
     text_color: Tuple[int, int, int] = (0, 0, 0)
 
     def __init__(self,
-        text: str = text,
-        width: int = width,
-        height: int = height,
-        position_x: int = position_x,
-        position_y: int = position_y,
-        text_font: str = text_font,
-        text_size: int = text_size,
-        screen: pygame.Surface = screen,
-        button_color: Tuple[int, int, int] = button_color,
-        text_color: Tuple[int, int, int] = text_color
-
-    ):
+                 text: str = text,
+                 width: int = width,
+                 height: int = height,
+                 position_x: int = position_x,
+                 position_y: int = position_y,
+                 text_font: str = text_font,
+                 text_size: int = text_size,
+                 screen: pygame.Surface = screen,
+                 button_color: Tuple[int, int, int] = button_color,
+                 text_color: Tuple[int, int, int] = text_color
+                 ):
         self.text = text
         self.screen = screen
         self.width = width
@@ -43,16 +43,16 @@ class Button():
 
     def create_button_render(self) -> Tuple[pygame.Surface, pygame.Rect]:
         msg_image: pygame.Surface = self.font.render(
-            self.text, 
-            True, 
-            self.text_color, 
+            self.text,
+            True,
+            self.text_color,
             self.button_color
         )
         msg_image_rect: pygame.Rect = msg_image.get_rect()
         msg_image_rect.center = self.button_rect.center
 
         return msg_image, msg_image_rect
-    
+
     def update_button(self) -> None:
         self.button_rect = pygame.Rect(
             (self.position_x, self.position_y),
@@ -65,13 +65,13 @@ class Button():
 
     def draw_button(self) -> None:
         self.screen.fill(
-            color = self.button_color,
-            rect = self.button_rect
+            color=self.button_color,
+            rect=self.button_rect
         )
 
         msg_image, msg_image_rect = self.create_button_render()
         self.screen.blit(
-            source = msg_image,
-            dest = msg_image_rect
+            source=msg_image,
+            dest=msg_image_rect
         )
         

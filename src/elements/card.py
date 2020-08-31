@@ -1,5 +1,5 @@
 
-class Card(object):
+class Card():
     name: str = ""
     rank: str = ""
     position: int = 0
@@ -7,14 +7,14 @@ class Card(object):
     attributes: dict = {}
     is_super_t: bool = False
 
-    def __init__(self, 
-        name: str = name,
-        rank: str = rank,
-        position: int = position,
-        card_image: str = card_image,
-        attributes: dict = attributes,
-        is_super_t: bool = is_super_t
-    ):
+    def __init__(self,
+                 name: str = name,
+                 rank: str = rank,
+                 position: int = position,
+                 card_image: str = card_image,
+                 attributes: dict = attributes,
+                 is_super_t: bool = is_super_t
+                 ):
         self.name = name
         self.rank = rank
         self.position = position
