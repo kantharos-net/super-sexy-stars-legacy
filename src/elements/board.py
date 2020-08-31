@@ -35,3 +35,4 @@ class Board():
 
     def dump_object(self) -> None:
         pass
+      

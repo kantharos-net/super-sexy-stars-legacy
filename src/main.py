@@ -7,6 +7,7 @@ from game_status import GameStatus
 DATA_FILES_PATH = "./config/game-data.json"
 SETTINGS_PATH = "./config/settings.json"
 
+# Method to load game data
 def load_data_files() -> dict:
     try:
         file_d = open(DATA_FILES_PATH)
@@ -18,6 +19,7 @@ def load_data_files() -> dict:
 
     return data
 
+# Method to load game settings
 def load_settings() -> dict:
     try:
         file_d = open(SETTINGS_PATH)
@@ -36,7 +38,7 @@ def first_setup(settings: dict) -> None:
     pass
 
 def run_game():
-    # LOAD THINGS
+    # Load settings and game data.
     settings = load_settings()
     game_data = load_data_files()
     first_setup(settings)
