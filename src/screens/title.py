@@ -1,9 +1,11 @@
-import pygame
 import sys
-from screens.common import *
-from elements.text import Text
+
+import pygame
+
 from elements.button import Button
-from elements.game_status import GameStatus, GameState
+from elements.game_status import GameState, GameStatus
+from elements.text import Text
+from screens.common import *
 
 
 class TitleScreen():
@@ -17,6 +19,7 @@ class TitleScreen():
         self.screen = screen
         self.settings = settings
         self.initial_load = False
+
         self.play_button = None
         self.rules_button = None
         self.quit_button = None

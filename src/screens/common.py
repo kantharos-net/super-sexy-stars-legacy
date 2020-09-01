@@ -1,5 +1,6 @@
 import pygame
 
+
 def clear_screen(
         screen: pygame.Surface,
         settings: dict
