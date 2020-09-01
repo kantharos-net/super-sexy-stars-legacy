@@ -1,8 +1,12 @@
-import sys
 import json
+import sys
+
 import pygame
-import game_flow
-from game_status import GameStatus
+
+from elements.game_status import GameState, GameStatus
+from screens.game import GameScreen
+from screens.rules import RulesScreen
+from screens.title import TitleScreen
 
 DATA_FILES_PATH = "./config/game-data.json"
 SETTINGS_PATH = "./config/settings.json"
@@ -51,12 +55,18 @@ def run_game():
     pygame.display.set_caption(settings["game_title"])
     screen.fill(settings["bg_color"])
 
-    stats = GameStatus()
+    game_status = GameStatus()
+
+    title_screen = TitleScreen(screen=screen, settings=settings)
+    game_screen = GameScreen(screen=screen, settings=settings)
+    rules_screen = RulesScreen(screen=screen, settings=settings)
 
     while True:
-        if not stats.game_active:
-            game_flow.title_screen(screen=screen, settings=settings, stats=stats)
-        else:
-            game_flow.game_screen(screen=screen, settings=settings, stats=stats)
+        if game_status.game_screen == GameState.TITLE:
+            title_screen.run_title_screen(game_status)
+        elif game_status.game_screen == GameState.RULES:
+            rules_screen.run_rules_screen(game_status)
+        elif game_status.game_screen == GameState.PLAYING:
+            game_screen.run_game_screen(game_status)
 
 run_game()
