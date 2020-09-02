@@ -91,7 +91,7 @@ class TitleScreen():
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 if self.play_button.is_clicked(mouse_x, mouse_y):
-                    game_status.game_screen = GameState.PLAYING
+                    game_status.game_screen = GameState.MIDDLE #Alterar para MiddleScreen
                     clear_screen(screen=self.screen, settings=self.settings)
                     self.initial_load = False
                 elif self.rules_button.is_clicked(mouse_x, mouse_y):

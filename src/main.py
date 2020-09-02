@@ -4,6 +4,7 @@ import pygame
 from screens.title import TitleScreen
 from screens.game import GameScreen
 from screens.rules import RulesScreen
+from screens.middle import MiddleScreen
 from elements.game_status import GameStatus, GameState
 
 DATA_FILES_PATH = "./config/game-data.json"
@@ -58,12 +59,15 @@ def run_game():
     title_screen = TitleScreen(screen=screen, settings=settings)
     game_screen = GameScreen(screen=screen, settings=settings)
     rules_screen = RulesScreen(screen=screen, settings=settings)
+    middle_screen = MiddleScreen(screen=screen, settings=settings)
 
     while True:
         if game_status.game_screen == GameState.TITLE:
             title_screen.run_title_screen(game_status)
         elif game_status.game_screen == GameState.RULES:
             rules_screen.run_rules_screen(game_status)
+        elif game_status.game_screen == GameState.MIDDLE:
+            middle_screen.run_middle_screen(game_status)
         elif game_status.game_screen == GameState.PLAYING:
             game_screen.run_game_screen(game_status)
 
