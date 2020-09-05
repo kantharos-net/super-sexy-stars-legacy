@@ -1,11 +1,13 @@
-import pygame
 import sys
-from screens.common import *
-from elements.text import Text
-from elements.button import Button
-from elements.log_screen import LogScreen
+
+import pygame
+
 from elements.board import Board
-from elements.game_status import GameStatus, GameState
+from elements.button import Button
+from elements.game_status import GameState, GameStatus
+from elements.log_screen import LogScreen
+from elements.text import Text
+from screens.common import *
 
 
 class GameScreen():

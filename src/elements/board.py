@@ -2,6 +2,7 @@ from typing import Tuple
 
 import pygame
 
+
 class Board():
     width: int = 0
     height: int = 0
@@ -35,4 +36,3 @@ class Board():
 
     def dump_object(self) -> None:
         pass
-      

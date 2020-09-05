@@ -1,10 +1,13 @@
-import pygame
 import sys
-from screens.common import *
-from elements.text import Text
+
+import pygame
+
 from elements.button import Button
 from elements.input_box import InputBox
 from elements.player import Player
+from elements.game_status import GameState, GameStatus
+from elements.text import Text
+from screens.common import *
 
 from elements.game_status import GameStatus, GameState
 
@@ -24,6 +27,7 @@ class MiddleScreen():
         self.play_button = None
         self.back_button = None
         self.name_inputbox = None
+        self.copyright_button = None
 
     def load_middle_screen(self) -> None:
         self.game_title = Text(
@@ -81,14 +85,39 @@ class MiddleScreen():
                  text_color=self.settings["name_inputbox_text_color"]
         )
 
+        self.copyright_button = Button(
+            text=self.settings["copyright_button_text"],
+            width=self.settings["copyright_button_width"],
+            height=self.settings["copyright_button_height"],
+            position_x=self.settings["copyright_button_pos_x"],
+            position_y=self.settings["copyright_button_pos_y"],
+            text_font=self.settings["copyright_button_text_font"],
+            text_size=self.settings["copyright_button_text_size"],
+            screen=self.screen,
+            button_color=tuple(self.settings["copyright_button_color"]),
+            text_color=tuple(self.settings["copyright_button_text_color"])
+        )
+
         self.game_title.draw_text()
         self.play_button.draw_button()
         self.back_button.draw_button()
         self.name_inputbox.draw_inputbox()
+        self.copyright_button.draw_button()
 
         pygame.display.flip()
 
     def run_middle_screen(self, game_status: GameStatus) -> None:
+        """
+        Description of run_middle_screen
+
+        Args:
+            self (undefined):
+            game_status (GameStatus):
+
+        Returns:
+            None
+
+        """
         if not self.initial_load:
             self.load_middle_screen()
             self.initial_load = True
@@ -99,15 +128,19 @@ class MiddleScreen():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
-            
-            Player.name = self.name_inputbox.update_inputbox(mouse_x, mouse_y, event)            
+
+            Player.name = self.name_inputbox.update_inputbox(mouse_x, mouse_y, event)
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                if self.play_button.is_clicked(mouse_x, mouse_y):                                    
-                    clear_screen(screen=self.screen, settings=self.settings)      
-                    self.initial_load = False 
-                    
+                if self.play_button.is_clicked(mouse_x, mouse_y):
+                    game_status.game_screen = GameState.PLAYING
+                    clear_screen(screen=self.screen, settings=self.settings)
+                    self.initial_load = False
                 elif self.back_button.is_clicked(mouse_x, mouse_y):
                     game_status.game_screen = GameState.TITLE
-                    clear_screen(screen=self.screen, settings=self.settings)      
-                    self.initial_load = False 
+                    clear_screen(screen=self.screen, settings=self.settings)
+                    self.initial_load = False
+                elif self.copyright_button.is_clicked(mouse_x, mouse_y):
+                    game_status.game_screen = GameState.COPYRIGHT
+                    clear_screen(screen=self.screen, settings=self.settings)
+                    self.initial_load = False

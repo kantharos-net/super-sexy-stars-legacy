@@ -1,9 +1,11 @@
-import pygame
 import sys
-from screens.common import *
-from elements.text import Text
+
+import pygame
+
 from elements.button import Button
-from elements.game_status import GameStatus, GameState
+from elements.game_status import GameState, GameStatus
+from elements.text import Text
+from screens.common import *
 
 
 class TitleScreen():
@@ -17,10 +19,12 @@ class TitleScreen():
         self.screen = screen
         self.settings = settings
         self.initial_load = False
+
         self.play_button = None
         self.rules_button = None
         self.quit_button = None
         self.game_title = None
+        self.copyright_button = None
 
     def load_title_screen(self) -> None:
         self.game_title = Text(
@@ -74,9 +78,23 @@ class TitleScreen():
             text_color=tuple(self.settings["quit_button_text_color"])
         )
 
+        self.copyright_button = Button(
+            text=self.settings["copyright_button_text"],
+            width=self.settings["copyright_button_width"],
+            height=self.settings["copyright_button_height"],
+            position_x=self.settings["copyright_button_pos_x"],
+            position_y=self.settings["copyright_button_pos_y"],
+            text_font=self.settings["copyright_button_text_font"],
+            text_size=self.settings["copyright_button_text_size"],
+            screen=self.screen,
+            button_color=tuple(self.settings["copyright_button_color"]),
+            text_color=tuple(self.settings["copyright_button_text_color"])
+        )
+
         self.game_title.draw_text()
         self.play_button.draw_button()
         self.rules_button.draw_button()
+        self.copyright_button.draw_button()
         self.quit_button.draw_button()
         pygame.display.flip()
 
@@ -96,6 +114,10 @@ class TitleScreen():
                     self.initial_load = False
                 elif self.rules_button.is_clicked(mouse_x, mouse_y):
                     game_status.game_screen = GameState.RULES
+                    clear_screen(screen=self.screen, settings=self.settings)
+                    self.initial_load = False
+                elif self.copyright_button.is_clicked(mouse_x, mouse_y):
+                    game_status.game_screen = GameState.COPYRIGHT
                     clear_screen(screen=self.screen, settings=self.settings)
                     self.initial_load = False
                 elif self.quit_button.is_clicked(mouse_x, mouse_y):

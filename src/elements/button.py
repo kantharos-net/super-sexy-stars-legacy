@@ -2,6 +2,7 @@ from typing import Tuple
 
 import pygame.font
 
+
 class Button():
     text: str = ""
     width: int = 0
@@ -74,4 +75,3 @@ class Button():
             source=msg_image,
             dest=msg_image_rect
         )
-        

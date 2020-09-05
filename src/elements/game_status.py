@@ -8,6 +8,7 @@ class GameState(Enum):
     RULES = 1
     MIDDLE = 3
     PLAYING = 4
+    COPYRIGHT = 5
 
 class GameStatus():
     game_screen: GameState = GameState.TITLE

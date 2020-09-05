@@ -1,9 +1,11 @@
-import pygame
 import sys
-from screens.common import *
-from elements.text import Text
+
+import pygame
+
 from elements.button import Button
-from elements.game_status import GameStatus, GameState
+from elements.game_status import GameState, GameStatus
+from elements.text import Text
+from screens.common import *
 
 
 class RulesScreen():
@@ -17,9 +19,11 @@ class RulesScreen():
         self.screen = screen
         self.settings = settings
         self.initial_load = False
+
         self.rules_title_text = None
         self.back_button = None
         self.rules_text = None
+        self.copyright_button = None
 
     def load_rules_screen(self) -> None:
         self.rules_title_text = Text(
@@ -48,7 +52,7 @@ class RulesScreen():
         )
 
         self.rules_text = Text(
-            text=self.load_rules_text(),
+            text=load_text(self.settings["rules_text_path"]),
             width=self.settings["rules_text_box_width"],
             height=self.settings["rules_text_box_height"],
             position_x=self.settings["rules_text_box_pos_x"],
@@ -59,9 +63,23 @@ class RulesScreen():
             text_color=tuple(self.settings["rules_text_box_text_color"])
         )
 
+        self.copyright_button = Button(
+            text=self.settings["copyright_button_text"],
+            width=self.settings["copyright_button_width"],
+            height=self.settings["copyright_button_height"],
+            position_x=self.settings["copyright_button_pos_x"],
+            position_y=self.settings["copyright_button_pos_y"],
+            text_font=self.settings["copyright_button_text_font"],
+            text_size=self.settings["copyright_button_text_size"],
+            screen=self.screen,
+            button_color=tuple(self.settings["copyright_button_color"]),
+            text_color=tuple(self.settings["copyright_button_text_color"])
+        )
+
         self.rules_title_text.draw_text()
         self.back_button.draw_button()
         self.rules_text.draw_text()
+        self.copyright_button.draw_button()
         pygame.display.flip()
 
     def run_rules_screen(self, game_status: GameStatus) -> None:
@@ -78,14 +96,7 @@ class RulesScreen():
                     game_status.game_screen = GameState.TITLE
                     clear_screen(screen=self.screen, settings=self.settings)
                     self.initial_load = False
-
-    def load_rules_text(self) -> str:
-        try:
-            rules_file = open(self.settings["rules_path"])
-            rules_content = rules_file.read()
-            rules_file.close()
-        except FileNotFoundError as fnf:
-            print(fnf.args)
-            sys.exit(1)
-
-        return str(rules_content)
+                elif self.copyright_button.is_clicked(mouse_x, mouse_y):
+                    game_status.game_screen = GameState.COPYRIGHT
+                    clear_screen(screen=self.screen, settings=self.settings)
+                    self.initial_load = False
