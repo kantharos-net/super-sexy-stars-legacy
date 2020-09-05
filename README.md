@@ -55,13 +55,13 @@ See also the list of [contributors](https://github.com/kantharos-net/super-trunf
 
 ### Code License
 
-This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License - see the [LICENSE.md](./license/LICENSE.md) file for details
+This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License - see the [LICENSE.md](https://github.com/kantharos-net/super-trunfo-p/blob/master/LICENSE.md) file for details
 
 ### Game license
 
-This game is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International License - see the [COPYRIGHT.md](./license/COPYRIGHT.md) file for details
+This game is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International License - see the [COPYRIGHT.md](https://github.com/kantharos-net/super-trunfo-p/blob/master/COPYRIGHT.md) file for details
 
-![by-nc-sa.png](./license/by-nc-sa.png)
+![by-nc-sa.png](./license_assets/by-nc-sa.png)
 
 ## Acknowledgments
 
