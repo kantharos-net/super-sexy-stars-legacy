@@ -4,11 +4,13 @@ import pygame.font
 import pygame as pg
 
 class InputBox():
-    text: str = ""
+    standard_text: str = ""
+    #text: str = ""
     width: int = 0
     height: int = 0
     text_font: str = ""
     text_size: int = 0
+    max_character: int = 0
     position_x: int = 0
     position_y: int = 0
     border_size: int = 0
@@ -21,16 +23,18 @@ class InputBox():
     active: bool = False
     m_hover: bool = False
     m_hover_active: bool = False
+    name_assigned: bool = False
     
 
     def __init__(self,
-                 text: str = text,
+                 standard_text: str = standard_text,
                  width: int = width,
                  height: int = height,
                  position_x: int = position_x,
                  position_y: int = position_y,
                  text_font: str = text_font,
                  text_size: int = text_size,
+                 max_character: int = max_character,
                  border_size: int = border_size,
                  border_color: Tuple[int, int, int] = border_color,
                  screen: pygame.Surface = screen,
@@ -38,10 +42,13 @@ class InputBox():
                  inactive_color: Tuple[int, int, int] = inactive_color,
                  text_color: Tuple[int, int, int] = text_color
                  ):
-        self.text = text
+
+        self.standard_text = standard_text
+        self.text: str = ""
         self.screen = screen
         self.width = width
         self.height = height
+        self.max_character = max_character
         self.border_size = border_size
         self.background_color =  inactive_color
         self.active_color = active_color
@@ -67,6 +74,9 @@ class InputBox():
         )
 
     def create_inputbox_render(self) -> Tuple[pygame.Surface, pygame.Rect]:
+        if (self.text == "" or self.text == self.standard_text) and self.active == False:
+            self.text = self.standard_text
+
         msg_image: pygame.Surface = self.font.render(
             self.text,
             True,
@@ -99,7 +109,7 @@ class InputBox():
             dest=msg_image_rect
         )
 
-    def mouse_update_inputbox(self,  mouse_x: int, mouse_y: int) -> None:        
+    def update_inputbox(self,  mouse_x: int, mouse_y: int, event: pg.event) -> str:        
         self.m_hover = self.mouse_hover( mouse_x, mouse_y)
         if self.m_hover and not self.m_hover_active and not self.active:
             self.background_color = self.active_color
@@ -113,18 +123,33 @@ class InputBox():
             self.draw_inputbox()
             pg.display.flip()
 
-    def text_update_inputbox(self, event: pg.event) -> None:
+        if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
+            if self.m_hover and not self.active:
+                self.active = True
+                self.text = ''
 
-        if self.active:
-            if  event.key == pg.K_RETURN:
-                print(self.text)
-            elif event.key == pg.K_BACKSPACE:
-                self.text = self.text[:-1]
-            else:
-                self.text +=event.unicode
+            elif not self.m_hover and self.active:
+                self.active = False
 
+        if event.type == pg.KEYDOWN:
+            if self.active:
+                if  event.key == pg.K_RETURN:
+                    self.name_assigned = True                    
+                    print(self.text)
+                elif event.key == pg.K_BACKSPACE:
+                    self.text = self.text[:-1]
+                else:
+                    if len(self.text) < self.max_character:
+                        self.text +=event.unicode
             self.draw_inputbox()
             pg.display.flip()
+        
+        return self.text
+
+
+                
+
+       
         
 
         
