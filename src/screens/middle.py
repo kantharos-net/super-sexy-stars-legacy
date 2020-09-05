@@ -3,7 +3,7 @@ import sys
 from screens.common import *
 from elements.text import Text
 from elements.button import Button
-from elements.inputbox import InputBox
+from elements.input_box import InputBox
 from elements.player import Player
 
 from elements.game_status import GameStatus, GameState
@@ -93,7 +93,6 @@ class MiddleScreen():
             self.load_middle_screen()
             self.initial_load = True
 
-
         for event in pygame.event.get():
             mouse_x, mouse_y = pygame.mouse.get_pos()
 
@@ -104,35 +103,11 @@ class MiddleScreen():
             Player.name = self.name_inputbox.update_inputbox(mouse_x, mouse_y, event)            
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                if self.play_button.is_clicked(mouse_x, mouse_y):
-                    #game_status.game_screen = GameState.TITLE                    
+                if self.play_button.is_clicked(mouse_x, mouse_y):                                    
                     clear_screen(screen=self.screen, settings=self.settings)      
                     self.initial_load = False 
                     
-
                 elif self.back_button.is_clicked(mouse_x, mouse_y):
                     game_status.game_screen = GameState.TITLE
                     clear_screen(screen=self.screen, settings=self.settings)      
                     self.initial_load = False 
-
-
-
-'''
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit(0)
-            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                
-                if self.quit_button.is_clicked(mouse_x, mouse_y):
-                    pygame.quit()
-                    sys.exit(0)
-                if self.play_button.is_clicked(mouse_x, mouse_y):
-                    game_status.game_screen = GameState.PLAYING
-                    clear_screen(screen=self.screen, settings=self.settings)
-                    self.initial_load = False
-                elif self.rules_button.is_clicked(mouse_x, mouse_y):
-                    game_status.game_screen = GameState.RULES
-                    clear_screen(screen=self.screen, settings=self.settings)
-                    self.initial_load = False
-        '''
-        

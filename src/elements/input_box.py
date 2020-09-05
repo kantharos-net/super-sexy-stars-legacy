@@ -5,9 +5,9 @@ import pygame as pg
 
 class InputBox():
     standard_text: str = ""
-    #text: str = ""
     width: int = 0
     height: int = 0
+    text: str = ""
     text_font: str = ""
     text_size: int = 0
     max_character: int = 0
@@ -24,10 +24,10 @@ class InputBox():
     m_hover: bool = False
     m_hover_active: bool = False
     name_assigned: bool = False
-    
 
     def __init__(self,
                  standard_text: str = standard_text,
+                 text: str = text,
                  width: int = width,
                  height: int = height,
                  position_x: int = position_x,
@@ -44,7 +44,7 @@ class InputBox():
                  ):
 
         self.standard_text = standard_text
-        self.text: str = ""
+        self.text = text
         self.screen = screen
         self.width = width
         self.height = height
@@ -74,8 +74,8 @@ class InputBox():
         )
 
     def create_inputbox_render(self) -> Tuple[pygame.Surface, pygame.Rect]:
-        if (self.text == "" or self.text == self.standard_text) and self.active == False:
-            self.text = self.standard_text
+        #if (self.text == "" or self.text == self.standard_text) and self.active == False:
+        #    self.text = self.standard_text
 
         msg_image: pygame.Surface = self.font.render(
             self.text,
@@ -111,12 +111,12 @@ class InputBox():
 
     def update_inputbox(self,  mouse_x: int, mouse_y: int, event: pg.event) -> str:        
         self.m_hover = self.mouse_hover( mouse_x, mouse_y)
+        
         if self.m_hover and not self.m_hover_active and not self.active:
             self.background_color = self.active_color
             self.m_hover_active = True            
             self.draw_inputbox()
             pg.display.flip()
-
         elif not self.m_hover and self.m_hover_active and not self.active:
             self.background_color = self.inactive_color 
             self.m_hover_active = False           
@@ -127,7 +127,6 @@ class InputBox():
             if self.m_hover and not self.active:
                 self.active = True
                 self.text = ''
-
             elif not self.m_hover and self.active:
                 self.active = False
 
@@ -145,16 +144,3 @@ class InputBox():
             pg.display.flip()
         
         return self.text
-
-
-                
-
-       
-        
-
-        
-
-        
-
-
-

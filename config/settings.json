@@ -66,6 +66,7 @@
     "middle_back_button_text_color": [255, 255, 255],
 
     "name_inputbox_standard_text": "Player Name",
+    "name_inputbox_text": "Name",
     "name_inputbox_width": 400,
     "name_inputbox_height": 80,
     "name_inputbox_pos_x": 400,
