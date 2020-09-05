@@ -52,7 +52,7 @@ class RulesScreen():
         )
 
         self.rules_text = Text(
-            text=self.load_rules_text(),
+            text=load_text(self.settings["rules_text_path"]),
             width=self.settings["rules_text_box_width"],
             height=self.settings["rules_text_box_height"],
             position_x=self.settings["rules_text_box_pos_x"],
@@ -96,14 +96,7 @@ class RulesScreen():
                     game_status.game_screen = GameState.TITLE
                     clear_screen(screen=self.screen, settings=self.settings)
                     self.initial_load = False
-
-    def load_rules_text(self) -> str:
-        try:
-            rules_file = open(self.settings["rules_path"])
-            rules_content = rules_file.read()
-            rules_file.close()
-        except FileNotFoundError as fnf:
-            print(fnf.args)
-            sys.exit(1)
-
-        return str(rules_content)
+                elif self.copyright_button.is_clicked(mouse_x, mouse_y):
+                    game_status.game_screen = GameState.COPYRIGHT
+                    clear_screen(screen=self.screen, settings=self.settings)
+                    self.initial_load = False
