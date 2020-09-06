@@ -1,7 +1,7 @@
 from typing import Tuple
 
-import pygame.font
-import pygame as pg
+import pygame
+
 
 class InputBox():
     standard_text: str = ""
@@ -50,7 +50,7 @@ class InputBox():
         self.height = height
         self.max_character = max_character
         self.border_size = border_size
-        self.background_color =  inactive_color
+        self.background_color = inactive_color
         self.active_color = active_color
         self.inactive_color = inactive_color
         self.text_color = text_color
@@ -74,8 +74,8 @@ class InputBox():
         )
 
     def create_inputbox_render(self) -> Tuple[pygame.Surface, pygame.Rect]:
-        #if (self.text == "" or self.text == self.standard_text) and self.active == False:
-        #    self.text = self.standard_text
+        if (self.text == "" or self.text == self.standard_text) and not self.active:
+            self.text = self.standard_text
 
         msg_image: pygame.Surface = self.font.render(
             self.text,
@@ -109,38 +109,38 @@ class InputBox():
             dest=msg_image_rect
         )
 
-    def update_inputbox(self,  mouse_x: int, mouse_y: int, event: pg.event) -> str:        
-        self.m_hover = self.mouse_hover( mouse_x, mouse_y)
-        
+    def update_inputbox(self, mouse_x: int, mouse_y: int, event: pygame.event) -> str:
+        self.m_hover = self.mouse_hover(mouse_x, mouse_y)
+
         if self.m_hover and not self.m_hover_active and not self.active:
             self.background_color = self.active_color
-            self.m_hover_active = True            
+            self.m_hover_active = True
             self.draw_inputbox()
-            pg.display.flip()
+            pygame.display.flip()
         elif not self.m_hover and self.m_hover_active and not self.active:
-            self.background_color = self.inactive_color 
-            self.m_hover_active = False           
+            self.background_color = self.inactive_color
+            self.m_hover_active = False
             self.draw_inputbox()
-            pg.display.flip()
+            pygame.display.flip()
 
-        if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if self.m_hover and not self.active:
                 self.active = True
                 self.text = ''
             elif not self.m_hover and self.active:
                 self.active = False
 
-        if event.type == pg.KEYDOWN:
+        if event.type == pygame.KEYDOWN:
             if self.active:
-                if  event.key == pg.K_RETURN:
-                    self.name_assigned = True                    
+                if  event.key == pygame.K_RETURN:
+                    self.name_assigned = True
                     print(self.text)
-                elif event.key == pg.K_BACKSPACE:
+                elif event.key == pygame.K_BACKSPACE:
                     self.text = self.text[:-1]
                 else:
                     if len(self.text) < self.max_character:
-                        self.text +=event.unicode
+                        self.text += event.unicode
             self.draw_inputbox()
-            pg.display.flip()
-        
+            pygame.display.flip()
+
         return self.text

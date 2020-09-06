@@ -4,12 +4,11 @@ import sys
 import pygame
 
 from elements.game_status import GameState, GameStatus
-from screens.game import GameScreen
-from screens.rules import RulesScreen
-from screens.middle import MiddleScreen
-from elements.game_status import GameStatus, GameState
-from screens.title import TitleScreen
 from screens.copyright import CopyrightScreen
+from screens.game import GameScreen
+from screens.middle import MiddleScreen
+from screens.rules import RulesScreen
+from screens.title import TitleScreen
 
 DATA_FILES_PATH = "./config/game-data.json"
 SETTINGS_PATH = "./config/settings.json"

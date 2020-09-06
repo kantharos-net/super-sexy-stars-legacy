@@ -3,13 +3,12 @@ import sys
 import pygame
 
 from elements.button import Button
+from elements.game_status import GameState, GameStatus
 from elements.input_box import InputBox
 from elements.player import Player
-from elements.game_status import GameState, GameStatus
 from elements.text import Text
 from screens.common import *
 
-from elements.game_status import GameStatus, GameState
 
 class MiddleScreen():
     screen: pygame.Surface = None
@@ -67,22 +66,22 @@ class MiddleScreen():
             button_color=tuple(self.settings["middle_back_button_color"]),
             text_color=tuple(self.settings["middle_back_button_text_color"])
         )
-        
+
         self.name_inputbox = InputBox(
-                 standard_text=self.settings["name_inputbox_standard_text"],
-                 width=self.settings["name_inputbox_width"],
-                 height=self.settings["name_inputbox_height"],
-                 position_x=self.settings["name_inputbox_pos_x"],
-                 position_y=self.settings["name_inputbox_pos_y"],
-                 text_font=self.settings["name_inputbox_text_font"],
-                 text_size=self.settings["name_inputbox_text_size"],
-                 max_character=self.settings["name_inputbox_max_character"],
-                 border_size=self.settings["name_inputbox_border_size"],
-                 border_color=self.settings["name_inputbox_border_color"],
-                 screen=self.screen,
-                 active_color=self.settings["name_inputbox_active_color"],
-                 inactive_color=self.settings["name_inputbox_inactive_color"],
-                 text_color=self.settings["name_inputbox_text_color"]
+            standard_text=self.settings["name_inputbox_standard_text"],
+            width=self.settings["name_inputbox_width"],
+            height=self.settings["name_inputbox_height"],
+            position_x=self.settings["name_inputbox_pos_x"],
+            position_y=self.settings["name_inputbox_pos_y"],
+            text_font=self.settings["name_inputbox_text_font"],
+            text_size=self.settings["name_inputbox_text_size"],
+            max_character=self.settings["name_inputbox_max_character"],
+            border_size=self.settings["name_inputbox_border_size"],
+            border_color=self.settings["name_inputbox_border_color"],
+            screen=self.screen,
+            active_color=self.settings["name_inputbox_active_color"],
+            inactive_color=self.settings["name_inputbox_inactive_color"],
+            text_color=self.settings["name_inputbox_text_color"]
         )
 
         self.copyright_button = Button(
@@ -107,17 +106,6 @@ class MiddleScreen():
         pygame.display.flip()
 
     def run_middle_screen(self, game_status: GameStatus) -> None:
-        """
-        Description of run_middle_screen
-
-        Args:
-            self (undefined):
-            game_status (GameStatus):
-
-        Returns:
-            None
-
-        """
         if not self.initial_load:
             self.load_middle_screen()
             self.initial_load = True
