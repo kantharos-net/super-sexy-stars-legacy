@@ -1,5 +1,5 @@
 {   
-    "canvas-background": "./images/image.png",
+    "canvas-background": "./images/background.png",
 	"cards-data": [ 	   
         {
             "name": "Sasha Grey",
@@ -395,5 +395,3 @@
         }
     ]
 }
-
-

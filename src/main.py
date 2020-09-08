@@ -4,10 +4,11 @@ import sys
 import pygame
 
 from elements.game_status import GameState, GameStatus
+from screens.copyright import CopyrightScreen
 from screens.game import GameScreen
+from screens.middle import MiddleScreen
 from screens.rules import RulesScreen
 from screens.title import TitleScreen
-from screens.copyright import CopyrightScreen
 
 DATA_FILES_PATH = "./config/game-data.json"
 SETTINGS_PATH = "./config/settings.json"
@@ -61,6 +62,7 @@ def run_game():
     title_screen = TitleScreen(screen=screen, settings=settings)
     game_screen = GameScreen(screen=screen, settings=settings)
     rules_screen = RulesScreen(screen=screen, settings=settings)
+    middle_screen = MiddleScreen(screen=screen, settings=settings)
     copyright_screen = CopyrightScreen(screen=screen, settings=settings)
 
     while True:
@@ -68,6 +70,8 @@ def run_game():
             title_screen.run_title_screen(game_status)
         elif game_status.game_screen == GameState.RULES:
             rules_screen.run_rules_screen(game_status)
+        elif game_status.game_screen == GameState.MIDDLE:
+            middle_screen.run_middle_screen(game_status)
         elif game_status.game_screen == GameState.COPYRIGHT:
             copyright_screen.run_copyright_screen(game_status)
         elif game_status.game_screen == GameState.PLAYING:
