@@ -1,3 +1,4 @@
+import json
 import sys
 
 import pygame
@@ -21,3 +22,15 @@ def load_text(path: str) -> str:
         sys.exit(1)
 
     return str(content)
+
+def load_json_file(file_path: str) -> dict:
+    try:
+        file_d = open(file_path)
+        data = dict(json.load(file_d))
+        file_d.close()
+    except FileNotFoundError as fnf:
+        print(fnf.args)
+        sys.exit(1)
+
+    return data
+    

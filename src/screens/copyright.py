@@ -3,9 +3,9 @@ import sys
 import pygame
 
 from elements.button import Button
-from elements.game_status import GameState, GameStatus
 from elements.text import Text
-from screens.common import *
+from utils.common import clear_screen, load_text
+from utils.game_status import GameState, GameStatus
 
 
 class CopyrightScreen():

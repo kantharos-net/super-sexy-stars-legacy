@@ -1,4 +1,3 @@
-
 class Card():
     name: str = ""
     rank: str = ""

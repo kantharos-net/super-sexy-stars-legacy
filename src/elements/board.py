@@ -8,7 +8,7 @@ class Board():
     height: int = 0
     position_x: int = 0
     position_y: int = 0
-    board_color: Tuple[int, int, int] = (0 ,0 ,0)
+    board_color: Tuple[int, int, int] = (0,0,0)
     screen: pygame.Surface = None
 
     def __init__(self,

@@ -3,51 +3,21 @@ import sys
 
 import pygame
 
-from elements.game_status import GameState, GameStatus
 from screens.copyright import CopyrightScreen
 from screens.game import GameScreen
 from screens.middle import MiddleScreen
 from screens.rules import RulesScreen
 from screens.title import TitleScreen
+from utils.common import load_json_file
+from utils.game_status import GameState, GameStatus
 
 DATA_FILES_PATH = "./config/game-data.json"
 SETTINGS_PATH = "./config/settings.json"
 
-# Method to load game data
-def load_data_files() -> dict:
-    try:
-        file_d = open(DATA_FILES_PATH)
-        data = dict(json.load(file_d))
-        file_d.close()
-    except FileNotFoundError as fnf:
-        print(fnf.args)
-        sys.exit(1)
-
-    return data
-
-# Method to load game settings
-def load_settings() -> dict:
-    try:
-        file_d = open(SETTINGS_PATH)
-        settings = dict(json.load(file_d))
-        file_d.close()
-    except FileNotFoundError as fnf:
-        print(fnf.args)
-        sys.exit(1)
-
-    return settings
-
-def invoke_board() -> None:
-    pass
-
-def first_setup(settings: dict) -> None:
-    pass
-
 def run_game():
     # Load settings and game data.
-    settings = load_settings()
-    game_data = load_data_files()
-    first_setup(settings)
+    settings = load_json_file(SETTINGS_PATH)
+    game_data = load_json_file(DATA_FILES_PATH)
 
     # GAME INIT
     pygame.init()
